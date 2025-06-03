@@ -1,4 +1,3 @@
-// Redis cache middleware for chapters endpoint
 const redisClient = require('../utils/redisClient');
 
 module.exports = async (req, res, next) => {
@@ -9,7 +8,6 @@ module.exports = async (req, res, next) => {
   }
   res.sendResponse = res.json;
   res.json = (body) => {
-    // Use set with EX for ioredis
     redisClient.set(key, JSON.stringify(body), 'EX', 3600);
     res.sendResponse(body);
   };

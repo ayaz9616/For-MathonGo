@@ -1,4 +1,3 @@
-// Controller for chapter endpoints
 const Chapter = require('../models/Chapter');
 const fs = require('fs');
 const path = require('path');
@@ -48,7 +47,7 @@ exports.uploadChapters = async (req, res) => {
         failed.push({ chapter, error: e.message });
       }
     }
-    // Invalidate cache
+
     await redisClient.del('chapters_cache');
     res.json({ message: 'Upload complete', failed });
   } catch (err) {

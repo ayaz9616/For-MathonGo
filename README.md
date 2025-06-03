@@ -29,7 +29,7 @@ This is a RESTful API backend for a Chapter Performance Dashboard, designed as a
 1. Clone the repository:
    ```sh
    git clone https://github.com/ayaz9616/For-MathonGo.git
-   cd <repo-name>
+   cd For-MathonGo
    ```
 2. Install dependencies:
    ```sh

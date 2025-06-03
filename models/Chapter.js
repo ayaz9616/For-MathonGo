@@ -1,4 +1,3 @@
-// Mongoose schema for Chapter
 const mongoose = require('mongoose');
 
 const yearWiseQuestionCountSchema = new mongoose.Schema({

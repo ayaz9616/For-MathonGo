@@ -15,6 +15,12 @@ module.exports = async (req, res, next) => {
     next();
   } catch (rejRes) {
     console.error('Rate limiter error:', rejRes);
-    res.status(429).json({ error: 'Too many requests, please try again later.' });
+    try {
+      res.status(429).json({ error: 'Too many requests, please try again later.' });
+    } catch (sendErr) {
+      console.error('Error sending rate limit response:', sendErr);
+      res.statusCode = 429;
+      res.end('Too many requests, please try again later.');
+    }
   }
 };

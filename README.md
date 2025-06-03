@@ -88,4 +88,4 @@ This is a RESTful API backend for a Chapter Performance Dashboard, designed as a
 
 ---
 
-**Author:** [Mohammad Ayaz]
+**Author:** Mohammad Ayaz

@@ -1,9 +1,23 @@
+# Node modules and dependencies
 node_modules/
+
+# Environment variables and secrets
 .env
+
+# Uploaded files and temp data
 uploads/
+
+# System and IDE files
 .DS_Store
-*.log
-npm-debug.log*
 .idea/
 .vscode/
+
+# Logs and debug
+*.log
+npm-debug.log*
+
+# Test coverage
 coverage/
+
+# OS generated files
+Thumbs.db

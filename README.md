@@ -38,7 +38,7 @@ This is a RESTful API backend for a Chapter Performance Dashboard, designed as a
 3. Create a `.env` file with:
    ```env
    MONGO_URI=your_mongodb_connection_string
-   REDIS_URL=redis://localhost:6379
+   REDIS_URL=redis://localhost:6379   or   get it from Upstash
    ADMIN_API_KEY=supersecretadminkey
    PORT=3000
    ```

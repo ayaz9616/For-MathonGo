@@ -1,26 +1,24 @@
 {
 	"info": {
-		"_postman_id": "ddcaf2f1-80e7-4254-8c09-8ebd3bd1ce6d",
-		"name": "MathonGo Backend API Copy",
+		"_postman_id": "6362194e-204f-4d3f-91a2-e81232298e60",
+		"name": "MathonGo Backend Api using redis",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "45580595"
 	},
 	"item": [
 		{
-			"name": "http://localhost:3000/api/v1/chapters",
+			"name": "All Chappters",
 			"request": {
-				"auth": {
-					"type": "noauth"
-				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/v1/chapters",
-					"protocol": "http",
+					"raw": "https://for-mathongo.onrender.com/api/v1/chapters",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"for-mathongo",
+						"onrender",
+						"com"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -31,36 +29,31 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:3000/api/v1/chapters/683f25259947535b4ff7dd86",
+			"name": "Specific Chappter using id",
 			"request": {
-				"auth": {
-					"type": "noauth"
-				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/v1/chapters/683f25259947535b4ff7dd86",
-					"protocol": "http",
+					"raw": "https://for-mathongo.onrender.com/api/v1/chapters/683f25269947535b4ff7dd88",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"for-mathongo",
+						"onrender",
+						"com"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"chapters",
-						"683f25259947535b4ff7dd86"
+						"683f25269947535b4ff7dd88"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "http://localhost:3000/api/v1/chapters",
+			"name": "Add new chappters using JSON file",
 			"request": {
-				"auth": {
-					"type": "noauth"
-				},
 				"method": "POST",
 				"header": [
 					{

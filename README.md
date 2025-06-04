@@ -38,7 +38,7 @@ This is a RESTful API backend for a Chapter Performance Dashboard, designed as a
 3. Create a `.env` file with:
    ```env
    MONGO_URI=your_mongodb_connection_string
-   REDIS_URL=redis://localhost:6379   or   get it from Upstash
+   REDIS_URL=redis://localhost:6379  or get one from Upstash
    ADMIN_API_KEY=supersecretadminkey
    PORT=3000
    ```
@@ -76,7 +76,101 @@ This is a RESTful API backend for a Chapter Performance Dashboard, designed as a
 - `utils/` — Redis client
 
 ## Deployment
-- Can be deployed on Render, Railway, Fly.io, or AWS EC2 (bonus: with GitHub Actions workflow).
+
+### Deployment on AWS EC2 (Optional Bonus)
+
+You can deploy this backend API on an AWS EC2 instance by following these steps:
+
+#### 1. Launch an EC2 Instance
+- Go to the AWS Management Console > EC2 > Instances > Launch Instance.
+- Choose an Ubuntu Server (e.g., Ubuntu 22.04 LTS) or Amazon Linux 2 AMI.
+- Select an instance type (t2.micro is free tier eligible).
+- Configure security group to allow inbound traffic on ports 22 (SSH), 80 (HTTP), and 3000 (or your API port).
+- Launch and download the key pair (.pem file).
+
+#### 2. Connect to Your Instance
+- Open a terminal and run:
+  ```sh
+  ssh -i /path/to/your-key.pem ubuntu@<EC2-PUBLIC-IP>
+  ```
+- Replace `/path/to/your-key.pem` with your key file path and `<EC2-PUBLIC-IP>` with your instance's public IP.
+
+#### 3. Install Node.js, npm, and Git
+  ```sh
+  sudo apt update
+  sudo apt install -y nodejs npm git
+  node -v
+  npm -v
+  ```
+
+#### 4. Clone Your Repository
+  ```sh
+  git clone https://github.com/ayaz9616/For-MathonGo-by-Ayaz_FiMzZhMTd.git
+  cd For_MathonGo
+  ```
+
+#### 5. Install Dependencies
+  ```sh
+  npm install
+  ```
+
+#### 6. Set Up Environment Variables
+- Create a `.env` file with your MongoDB URI, Redis URL, and API key, e.g.:
+  ```env
+  MONGODB_URI=your_mongodb_connection_string
+  REDIS_URL=your_redis_connection_string
+  API_KEY=supersecretadminkey
+  PORT=3000
+  ```
+
+#### 7. Start the Server
+  ```sh
+  node index.js
+  ```
+- Or use `pm2` for production:
+  ```sh
+  npm install -g pm2
+  pm2 start index.js
+  pm2 save
+  pm2 startup
+  ```
+
+#### 8. (Optional) Set Up a Reverse Proxy (Nginx)
+- Install Nginx:
+  ```sh
+  sudo apt install nginx
+  ```
+- Configure `/etc/nginx/sites-available/default` to proxy requests to your Node.js app:
+  ```nginx
+  server {
+      listen 80;
+      server_name_;
+      location / {
+          proxy_pass http://localhost:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection 'upgrade';
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+      }
+  }
+  ```
+- Restart Nginx:
+  ```sh
+  sudo systemctl restart nginx
+  ```
+
+#### 9. Access Your API
+- Visit `http://<EC2-PUBLIC-IP>/api/v1/chapters` in your browser or Postman.
+
+#### 10. Security & Maintenance
+- Never expose your `.env` or credentials.
+- Use a firewall (e.g., AWS Security Groups, ufw) to restrict access.
+- Use HTTPS in production (with Let's Encrypt or AWS ACM).
+
+---
+
+**Note:** EC2 deployment is optional for this submission. The API is deployed and fully functional on Render. All instructions above are provided for your reference if you wish to deploy on EC2.
 
 ## Postman Collection
 - A Postman collection is provided for easy API testing (see repo or ask for export).

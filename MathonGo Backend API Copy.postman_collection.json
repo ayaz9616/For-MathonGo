@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "ddcaf2f1-80e7-4254-8c09-8ebd3bd1ce6d",
+		"name": "MathonGo Backend API Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45580595"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/api/v1/chapters",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/chapters",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"chapters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/v1/chapters/683f25259947535b4ff7dd86",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/chapters/683f25259947535b4ff7dd86",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"chapters",
+						"683f25259947535b4ff7dd86"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/v1/chapters",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "supersecretadminkey",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/ayaz9/Downloads/all_subjects_chapter_data.json"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://for-mathongo.onrender.com/api/v1/chapters",
+					"protocol": "https",
+					"host": [
+						"for-mathongo",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"chapters"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
